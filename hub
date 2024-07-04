@@ -1,0 +1,78 @@
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
+local Window = OrionLib:MakeWindow({
+    Name = "SussyHub",
+    HidePremium = false,
+    Introtext = "Dupe and trade scam",
+    SaveConfig = true,
+    ConfigFolder = "SussyHub"
+})
+
+OrionLib:MakeNotification({
+    Name = "Hey!",
+    Content = "Execution successful",
+    Image = "rbxassetid://4483345998",
+    Time = 5
+})
+
+local TutTab = Window:MakeTab({
+    Name = "Dupe+more",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local Section = TutTab:AddSection({
+    Name = "Dupe Section"
+})
+
+-- "Dupe Huge" button (formerly "Dupe Pet")
+TutTab:AddButton({
+    Name = "Dupe Huge",
+    Callback = function()
+        -- Replace with your dupe script execution
+        print("Dupe Huge executed!")
+    end    
+})
+
+-- Adding a new section for "Trade Scam"
+local TradeScamSection = TutTab:AddSection({
+    Name = "Trade Scam"
+})
+
+-- Toggle button for Trade Scam
+local TradeScamToggle = TradeScamSection:AddToggle({
+    Name = "Trade Scam",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+            print("Trade Scam enabled")
+            -- Replace with your trade scam script execution
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/tobi437a/Scripts/main/TradeScamScript.lua'))()
+        else
+            print("Trade Scam disabled")
+            -- Optionally add logic to disable trade scam if necessary
+        end
+    end    
+})
+
+-- Adding a new section for "Fast Hatching"
+local FastHatchSection = TutTab:AddSection({
+    Name = "Fast Hatching"
+})
+
+-- Toggle button for Fast Hatching
+local FastHatchToggle = FastHatchSection:AddToggle({
+    Name = "Fast Hatching",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+            print("Fast Hatching enabled")
+            -- Replace with your fast hatching script execution
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/tobi437a/Scripts/main/FastHatchScript.lua'))()
+        else
+            print("Fast Hatching disabled")
+            -- Optionally add logic to disable fast hatching if necessary
+        end
+    end    
+})
+
+OrionLib:Init()
